@@ -1,0 +1,83 @@
+@CHARSET "ISO-8859-1";
+#header {
+	text-align: center;
+	border-bottom: 3px single gray;
+	background-color: red;
+}
+.headrBanner{
+	font-family: Arial,helvetica, sans-serif;
+	font-size: 40px;
+	height: 41px:
+}
+.headerSmallText{
+	background-color: #FFFFFF;
+	font-family: Arial,helvetica, sans-serif;
+	font-size: 11px;
+	height: 12px;
+	line-height: 1.09;
+	margin:0 0 0 8px;
+	padding: 0 0 0 8px;
+	float: left;'
+}
+#map{
+	float:left;
+	width: 70%;
+	padding-left: 1%;
+	padding-right: 1%;
+	min-height: 30em;
+	
+}
+
+#left{
+	float: left;
+	width: 20%;
+	min-height: 30em;
+}
+
+#center {
+	float: left;
+	width: 80%;
+	padding-left: 1%;
+	padding-right: 1%;
+	min-height: 30em;
+	
+}
+#center-three-column{
+	float: left;
+	width: 70%;
+	padding-left:  1%;
+	padding-right:  1%;
+	min-height: 30em;
+}
+
+#right{
+	float: left;
+	width: 10%;
+	padding-left: 2%;
+	padding-right: 1%;
+	min-height: 30em;
+}
+
+.footer{
+	background-color: black;
+	border-radius: 10px 10px 10px 10px;
+	border: 2px solid #ff8080;
+	padding: auto;
+	font-family: Arial;
+	font-style: italic;
+	color: white;
+	width: 99.5%;
+	height: 5%;
+	margin-top: 5px;
+	margin-right: 5px;
+	margin-bottom: 5px;
+	margin-left: 5px;
+	text-align: center;
+}
+
+.tables{
+	width: 20%;
+	margin-bottom: 50px;
+}
+
+

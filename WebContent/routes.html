@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Pemex Maps</title>
+<link rel ="stylesheet" href="css/parallax.css">
+<link rel ="stylesheet" href="css/styles.css">
+<link href="http://code.google.com/apis/maps/documentation/javascript/examples/default.css" rel="stylesheet" />
+<link rel="stylesheet" href="http://netdna.bootstrapcdn.com/font-awesome/3.1.1/css/font-awesome.css">
+<script src="js/jquery.min.js"></script>
+<link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link href="css/style.css" rel="stylesheet" type="text/css">
+<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
+<script type="text/javascript" src="http://maps.googleapis.com/maps/api/js?sensor=false"></script>
+<script type="text/javascript" src="js/routes.js"></script>
+</head>
+<body  onload="initialize()">
+<header>
+  <div class="jumbotron">
+	<center> <p><img alt="logo" src="images/parallaxLogo.png"/></p> </center>  
+	  
+	  <!--  -->
+
+	  
+	  
+	  <nav class="navbar navbar-default">
+	  <div class="container-fluid">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1" aria-expanded="false">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="#">Inicio</a>
+      <!--  -->
+    
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav"  class="caja-redes">
+        <li><a href="Arana.html">Arana</a></li>
+        <li><a href="Ojeda.html">Ojeda</a></li>
+		<li><a href="Orizaba.html">Orizaba</a></li>
+		<li><a href="Quiroga.html">Quiroga</a></li>
+        
+      </ul>
+      <form class="navbar-form navbar-left" role="search">
+        <div class="form-group">
+          <input type="text" class="form-control" placeholder="Search">
+        </div>
+      </form>
+      <ul class="nav navbar-nav navbar-right">
+	  <li><a href="http://www.pemex.com/Paginas/contacto.aspx">Contactos</a></li>
+          </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+	</div>
+</header>
+
+
+<div class="row">
+
+  <div class="col-md-6"><div id="left">
+  <h3  class="h3"><strong>Start:</strong>
+    <select name="start" id="start" onchange="calcRoute();">
+      <option value="Monterrey"> Monterrey</option>
+      <option value="Tampico"> Tampico</option>
+      <option value="Mexico City"> Mexico City</option>
+      <option value="Veracruz"> Veracruz</option>
+      <option value=" San Luis Potos&iacute; "> San Luis Potosi</option>
+      <option value="Campeche"> Campeche</option>
+      <option value="Tabasco "> Tabasco</option>
+      <option value="Salamanca">Salamanca</option>
+      <
+      <option value="Tula, Hidalgo "> Tula</option>
+      
+      <option value="Veracruz, Orizaba ">Orizaba</option>
+      <option value="Tula, Hidalgo "> Ojeda</option>
+      <option value="Tula, Hidalgo "> Quiroga</option>
+      <option value="Veracruz, Arana "> Arana</option>
+      
+      
+    </select>
+    <strong>End:</strong>
+    <select name="end" id="end" onchange="calcRoute();">
+      <option value="Monterrey"> Monterrey</option>
+      <option value="Tampico"> Tampico</option>
+      <option value="Mexico City"> Mexico City</option>
+      <option value="Veracruz"> Veracruz</option>
+      <option value=" San Luis Potos&iacute; "> San Luis Potosi</option>
+      <option value="Campeche"> Campeche</option>
+      <option value="Tabasco"> Tabasco</option>
+      <option value="Salamanca">Salamanca</option>
+     
+      <option value="Tula "> Tula</option>
+
+      <option value=" Veracruz, Orizba ">Orizaba</option>
+      <option value="Tula, Hidalgo "> Ojeda</option>
+      <option value="Michoacan"> Quiroga</option>
+      <option value="Veracruz, Arana "> Arana</option>
+      
+    </select>
+  </h3>
+  <div class="h3">
+Distance: <strong id="distance">0</strong> Km. <br/>
+Month:      <strong id="months">0</strong><br/>
+Robots:      <strong id="robot">0</strong>
+
+<div class="divTable" style="width: 700px;">
+<div class="divTableBody">
+<div class="divTableRow">
+<div class="divTableCell">Entry routes: </div>
+<div class="divTableCell">Exit routes: </div>
+<div class="divTableCell">Robots: </div>
+<div class="divTableCell">Kilometers: </div>
+
+
+
+
+</div>
+<div class="divTableRow">
+<div class="divTableCell"><strong id="combost">0 </strong></div>
+<div class="divTableCell"><strong id="endAcumludador">0 </strong></div>
+<div class="divTableCell"><strong id=robotarrg>0 </strong></div>
+<div class="divTableCell"><strong id="Tdisarrg">0 </strong></div>
+
+</div>
+<div class="divTableRow">
+<div class="divTableCell">&nbsp;</div>
+<div class="divTableCell"><strong >Total: </strong></div>
+<div class="divTableCell"><strong id=trobs>0</strong><br/></div>
+<div class="divTableCell"><strong id="totaldis">0</strong> Km.</div>
+
+</div>
+
+</div>
+</div>
+
+
+  </div>
+  </div>
+</div>
+  <div class="col-md-6"><div id="map" style="width: 650px; height: 300px;" ></div>
+ 
+  <div class="caja-redes" id="right" align="right">
+
+   <a href="https://twitter.com/SofiLopG" class="icon-button twitter"><i class="icon-twitter"></i><span></span></a>
+   <a href="https://www.facebook.com/profile.php?id=100004100265822" class="icon-button facebook"><i class="icon-facebook"></i><span></span></a>
+   <a href="https://aboutme.google.com/u/0/?referer=gplus" class="icon-button google-plus"><i class="icon-google-plus"></i><span></span></a>
+</div>
+
+  </div>
+
+</div>
+
+
+
+
+
+<footer class="footer">
+	<p class="h5">Copyright &copy; 2016 © Contoso Corporation - Todos los derechos Reservados</p>  
+</footer>
+
+</body>
+
+
+ 
+</html>
